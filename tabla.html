@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tablas de Multiplicar - Estilo Wos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Tablas de Multiplicar</h1>
+    <label for="numero">Selecciona un número:</label><br />
+    <input type="number" id="numero" min="1" max="100" value="1" />
+    <br />
+    <button onclick="generarTabla()">Mostrar Tabla</button>
+    <div id="resultado"></div>
+  </div>
+<link rel="stylesheet" href="style.css">
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+  function generarTabla() {
+    const numero = parseInt(document.getElementById("numero").value);
+    const resultadoDiv = document.getElementById("resultado");
+    resultadoDiv.innerHTML = "";
+
+    if (isNaN(numero)) {
+      resultadoDiv.innerHTML = "<p>Por favor, introduce un número válido.</p>";
+      return;
+    }
+
+    let tablaHTML = "<h2>Tabla del " + numero + "</h2><ul>";
+    for (let i = 1; i <= 10; i++) {
+      tablaHTML += "<li>" + numero + " × " + i + " = " + (numero * i) + "</li>";
+    }
+    tablaHTML += "</ul>";
+    resultadoDiv.innerHTML = tablaHTML;
+  }
+</script>
